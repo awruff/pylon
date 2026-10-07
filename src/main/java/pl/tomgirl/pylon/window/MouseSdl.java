@@ -14,6 +14,7 @@ import static org.lwjgl.sdl.SDLMouse.*;
 public class MouseSdl {
     private static final int EVENT_QUEUE_SIZE = 100;
     private static final int BUTTON_COUNT = Integer.SIZE;
+    private static final int LWJGL2_WHEEL_STEP = 120;
 
     private static final DisplaySdl DISPLAY = DisplaySdl.instance();
     private static final MouseSdl INSTANCE = new MouseSdl();
@@ -188,7 +189,7 @@ public class MouseSdl {
                 break;
             }
             case SDL_EVENT_MOUSE_WHEEL: {
-                int yOffset = wheelEvent.integer_y();
+                int yOffset = wheelEvent.integer_y() * LWJGL2_WHEEL_STEP;
                 if (yOffset == 0) {
                     break;
                 }
