@@ -268,7 +268,7 @@ public class MouseSdl {
         public double y;
         public double dx;
         public double dy;
-        /// Wheel movement in notches. [org.lwjgl.input.Mouse] multiplies it by 120.
+        /// Wheel movement in notches. [org.lwjgl.input.Mouse] multiplies it by 120 to report LWJGL2 units.
         public double wheelDelta;
         public final boolean[] buttons;
 
