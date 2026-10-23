@@ -462,6 +462,9 @@ public class DisplaySdl {
 
         checkSdlError(SDLHints.SDL_SetHint(SDLHints.SDL_HINT_MAC_BACKGROUND_APP, "0"));
         checkSdlError(SDLHints.SDL_SetHint(SDLHints.SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH, "1"));
+        if (!Boolean.parseBoolean(System.getProperty("pylon.rawInput", "true"))) {
+            checkSdlError(SDLHints.SDL_SetHint(SDLHints.SDL_HINT_MOUSE_RELATIVE_SYSTEM_SCALE, "1"));
+        }
         hints.forEach((k, v) -> checkSdlError(SDLHints.SDL_SetHint(k, v)));
 
         checkSdlError(SDL_SetAppMetadata("Minecraft", null, "com.mojang.minecraft"));
